@@ -1,0 +1,20 @@
+<!-- templates/student_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Enquiries</title>
+</head>
+<body>
+    <h1>Student Enquiry List (Total: {{ students.count }})</h1>
+    <a href="{% url 'student_create' %}">Create New Enquiry</a>
+    <ul>
+        {% for student in students %}
+            <li>
+                <a href="{% url 'student_detail' student.pk %}">
+                    {{ student.enquiryId }} - {{ student.name }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
