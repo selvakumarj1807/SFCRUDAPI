@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Create Student Enquiry</title>
     <meta charset="UTF-8">
@@ -8,42 +9,192 @@
     <!-- Bootstrap 4 CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
-<body>
-<div class="container mt-5">
-    <h2 class="mb-4">Create New Student Enquiry</h2>
 
-    <!-- Display non-field form errors -->
-    {% if form.non_field_errors %}
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4">Create New Student Enquiry</h2>
+
+        <!-- Display non-field form errors -->
+        {% if form.non_field_errors %}
         <div class="alert alert-danger">
             {{ form.non_field_errors }}
         </div>
-    {% endif %}
+        {% endif %}
 
-    <form method="post" novalidate>
-        {% csrf_token %}
+        <form method="post" novalidate>
+            {% csrf_token %}
 
-        {% for field in form %}
             <div class="form-group">
-                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-                {{ field }}
-
-                {% if field.errors %}
-                    <div class="text-danger small">
-                        {{ field.errors|striptags }}
-                    </div>
+                <label for="id_name">Name</label>
+                {{ form.name }}
+                {% if form.name.errors %}
+                <div class="text-danger small">{{ form.name.errors|striptags }}</div>
                 {% endif %}
             </div>
-        {% endfor %}
 
-        <div class="mt-4">
-            <button type="submit" class="btn btn-primary">Submit</button>
-            <a href="{% url 'student_list' %}" class="btn btn-secondary">Back to List</a>
-        </div>
-    </form>
-</div>
+            <div class="form-group">
+                <label for="id_dob">Date of Birth</label>
+                {{ form.dob }}
+                {% if form.dob.errors %}
+                <div class="text-danger small">{{ form.dob.errors|striptags }}</div>
+                {% endif %}
+            </div>
 
-<!-- Bootstrap 4 JS Bundle -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+            <div class="form-group">
+                <label for="id_mobile">Mobile</label>
+                {{ form.mobile }}
+                {% if form.mobile.errors %}
+                <div class="text-danger small">{{ form.mobile.errors|striptags }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="id_email">Email</label>
+                {{ form.email }}
+                {% if form.email.errors %}
+                <div class="text-danger small">{{ form.email.errors|striptags }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="id_education">Education</label>
+                {{ form.education }}
+                {% if form.education.errors %}
+                <div class="text-danger small">{{ form.education.errors|striptags }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="id_passout_year">Passout Year</label>
+                {{ form.passout_year }}
+                {% if form.passout_year.errors %}
+                <div class="text-danger small">{{ form.passout_year.errors|striptags }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="id_course">Course</label>
+                {{ form.course }}
+                {% if form.course.errors %}
+                <div class="text-danger small">{{ form.course.errors|striptags }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="id_placement">Placement</label>
+                {{ form.placement }}
+                {% if form.placement.errors %}
+                <div class="text-danger small">{{ form.placement.errors|striptags }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="id_currently_working">Currently Working</label>
+                {{ form.currently_working }}
+                {% if form.currently_working.errors %}
+                <div class="text-danger small">{{ form.currently_working.errors|striptags }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="id_profession">Profession</label>
+                {{ form.profession }}
+                {% if form.profession.errors %}
+                <div class="text-danger small">{{ form.profession.errors|striptags }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="id_company">Company</label>
+                {{ form.company }}
+                {% if form.company.errors %}
+                <div class="text-danger small">{{ form.company.errors|striptags }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="id_designation">Designation</label>
+                {{ form.designation }}
+                {% if form.designation.errors %}
+                <div class="text-danger small">{{ form.designation.errors|striptags }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="id_duration">Duration</label>
+                {{ form.duration }}
+                {% if form.duration.errors %}
+                <div class="text-danger small">{{ form.duration.errors|striptags }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="id_pf">PF</label>
+                {{ form.pf }}
+                {% if form.pf.errors %}
+                <div class="text-danger small">{{ form.pf.errors|striptags }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="id_uan">UAN</label>
+                {{ form.uan }}
+                {% if form.uan.errors %}
+                <div class="text-danger small">{{ form.uan.errors|striptags }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="id_form16">Form 16</label>
+                {{ form.form16 }}
+                {% if form.form16.errors %}
+                <div class="text-danger small">{{ form.form16.errors|striptags }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="id_address">Address</label>
+                {{ form.address }}
+                {% if form.address.errors %}
+                <div class="text-danger small">{{ form.address.errors|striptags }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="id_pan_aadhar">PAN / Aadhar</label>
+                {{ form.pan_aadhar }}
+                {% if form.pan_aadhar.errors %}
+                <div class="text-danger small">{{ form.pan_aadhar.errors|striptags }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="id_refer_by">Referred By</label>
+                {{ form.refer_by }}
+                {% if form.refer_by.errors %}
+                <div class="text-danger small">{{ form.refer_by.errors|striptags }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="id_referer_mobile">Referrer Mobile</label>
+                {{ form.referer_mobile }}
+                {% if form.referer_mobile.errors %}
+                <div class="text-danger small">{{ form.referer_mobile.errors|striptags }}</div>
+                {% endif %}
+            </div>
+
+            <div class="mt-4">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <a href="{% url 'student_list' %}" class="btn btn-secondary">Back to List</a>
+            </div>
+        </form>
+
+    </div>
+
+    <!-- Bootstrap 4 JS Bundle -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
